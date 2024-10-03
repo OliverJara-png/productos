@@ -10,6 +10,7 @@ const usuarios = bd.collection("miejemploBD");
 const productos = bd.collection("productos");
 
 module.exports={
+    bd,
     usuarios,
     productos
 }

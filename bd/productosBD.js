@@ -39,14 +39,18 @@ async function buscarProductoPorId(id) {
 }
 
 async function nuevoProducto(data) {
+    if (!data.producto || !data.cantidad || !data.precio) {
+        return { error: "Faltan datos para crear el producto" };
+    }
+    
     const productoData = new Producto(data);
     var productoValido = false;
-    
+
     if (validarDatosProducto(productoData.getproducto)) {
         await productosBD.doc().set(productoData.getproducto);
         productoValido = true;
     }
-    
+
     return productoValido;
 }
 

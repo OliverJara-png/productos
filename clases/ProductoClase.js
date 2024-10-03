@@ -11,8 +11,10 @@ class Producto {
     }
 
     set producto(producto) {
-        if (producto.length > 0) {
+        if (producto && producto.length > 0) {
             this._producto = producto;
+        } else {
+            this._producto = "Producto desconocido";  // Establece un valor por defecto o lanza un error si es necesario
         }
     }
 
